@@ -23,6 +23,10 @@ mock_rules_java_to_avoid_downloading
 
 disable_bzlmod
 
+# disable the repo contents cache as it causes tests to hang
+# don't use them together, kids
+echo 'common --repo_contents_cache=' >> .bazelrc
+
 test_result_recorded() {
   mkdir result_recorded && cd result_recorded
   rm -rf fetchrepo
